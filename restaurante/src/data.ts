@@ -289,41 +289,41 @@ export const pizzas: Products = [
   {
     id: 5,
     title: "Veggie Supreme",
-    desc: "A classic Italian delight featuring a thin, crispy crust, tangy tomato sauce, fresh mozzarella, and a medley of aromatic herbs topped with lettuce, tomatoes, and a dollop of tangy mayo.",
+    desc: "Uma pizza italiana clássica com massa fina e crocante, molho de tomate picante, mussarela fresca, ervas aromáticas, alface, tomate e maionese picante.",
     img: "/temporary/p11.png",
     price: 24.9,
     options: [
       {
-        title: "Small",
+        title: "Pequena",
         additionalPrice: 0,
       },
       {
-        title: "Medium",
+        title: "Média",
         additionalPrice: 4,
       },
       {
-        title: "Large",
+        title: "Grande",
         additionalPrice: 6,
       },
     ],
   },
   {
     id: 6,
-    title: "Four Cheese Fantasy",
-    desc: "Experience pure cheesy bliss with a melty blend of mozzarella, cheddar, provolone, and Parmesan cheeses, creating a rich and indulgent pizza experience.",
+    title: "Fantasia de quatro queijos",
+    desc: "Desfrute da riqueza do queijo com uma mistura derretida de mussarela, cheddar, provolone e parmesão, tornando sua pizza indulgente e deliciosa.",
     img: "/temporary/p12.png",
     price: 22.9,
     options: [
       {
-        title: "Small",
+        title: "Pequena",
         additionalPrice: 0,
       },
       {
-        title: "Medium",
+        title: "Média",
         additionalPrice: 4,
       },
       {
-        title: "Large",
+        title: "Grande",
         additionalPrice: 6,
       },
     ],
@@ -332,21 +332,21 @@ export const pizzas: Products = [
 
 export const singleProduct: Product = {
   id: 1,
-  title: "Sicilian",
-  desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
+  title: "Siciliana",
+  desc: "Desperte seu paladar com a mistura picante de calabresa, jalapeños, flocos de pimenta vermelha e queijo mussarela derretido, proporcionando um toque especial a cada mordida",
   img: "/temporary/p1.png",
   price: 24.9,
   options: [
     {
-      title: "Small",
+      title: "Pequena",
       additionalPrice: 0,
     },
     {
-      title: "Medium",
+      title: "Média",
       additionalPrice: 4,
     },
     {
-      title: "Large",
+      title: "Grande",
       additionalPrice: 6,
     },
   ],
@@ -364,25 +364,25 @@ type Menu = {
 export const menu: Menu = [
   {
     id: 1,
-    slug: "pastas",
-    title: "Italian Pastas",
-    desc: "Savor the taste of perfection with our exquisite Italian handmade pasta menu.",
+    slug: "massas",
+    title: "Massas Italianas",
+    desc: "Delicie-se com a perfeição em cada prato de nossa seleção de massas italianas feitas à mão",
     img: "/temporary/m1.png",
     color: "white",
   },
   {
     id: 2,
-    slug: "burgers",
+    slug: "hambúrgueres",
     title: "Juicy Burgers",
-    desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
+    desc: "Delícia de Hambúrguer: Suculentos hambúrgueres, sabores intensos e uma abundância de coberturas gourmet.",
     img: "/temporary/m2.png",
     color: "black",
   },
   {
     id: 3,
     slug: "pizzas",
-    title: "Cheesy Pizzas",
-    desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+    title: "Pizzas de queijo",
+    desc: "Pizza Paradise: Fatias irresistíveis, coberturas de dar água na boca e perfeição de queijo.",
     img: "/temporary/m3.png",
     color: "white",
   },
