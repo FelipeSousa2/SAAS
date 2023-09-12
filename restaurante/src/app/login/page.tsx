@@ -1,7 +1,25 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const { data, status } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (status === "authenticated") {
+    router.push("/");
+  }
+
+  function SignIn(_arg0: string): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="p-4 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex items-center justify-center">
       {/* Box */}
@@ -17,7 +35,10 @@ export default function LoginPage() {
             Faça login na sua conta ou crie uma nova utilizando os botões
             sociais.
           </p>
-          <button className="flex gap-4 p-4 ring-orange-100 rounded-md">
+          <button
+            className="flex gap-4 p-4 ring-orange-100 rounded-md"
+            onClick={() => signIn("google")}
+          >
             <Image
               src="/google.png"
               alt=""

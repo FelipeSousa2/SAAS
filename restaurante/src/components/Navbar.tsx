@@ -2,6 +2,7 @@ import Link from "next/link";
 import Menu from "./Menu";
 import CartIcon from "./CartIcon";
 import Image from "next/image";
+import UserLinks from "@/components/UserLinks";
 
 export default function Navbar() {
   const user = false;
@@ -27,11 +28,7 @@ export default function Navbar() {
           <Image src="/whatsapp.png" alt="" width={40} height={40} />
           <span>(**)*****-****</span>
         </div>
-        {!user ? (
-          <Link href="/login">Login</Link>
-        ) : (
-          <Link href="/orders">Pedidos</Link>
-        )}
+        <UserLinks />
         <CartIcon />
       </div>
     </div>
