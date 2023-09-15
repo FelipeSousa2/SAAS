@@ -16,7 +16,7 @@ export type ProductType = {
   options: { title: string; additionalPrice: number }[];
 };
 
-export type OrederType = {
+export type OrderType = {
   id: string;
   userEmail: string;
   price: number;

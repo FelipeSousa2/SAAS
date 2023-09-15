@@ -1,12 +1,16 @@
 "use client";
+import { OrderType } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
-import { OrederType } from "@/types/types";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function OrdersPage() {
   const { data: session, status } = useSession();
-  const router = useRouter;
+  const router = useRouter();
+
+  if (status === "unauthenticated") {
+    router.push("/");
+  }
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
@@ -14,7 +18,7 @@ export default function OrdersPage() {
       fetch("https://localhost:3000/api/orders").then((res) => res.json()),
   });
 
-  if (isLoading) return "Loading...";
+  if (isLoading || status === "loading") return "Loading...";
 
   return (
     <div className="p-4 lg:px-20 xl:px-40">
@@ -29,7 +33,7 @@ export default function OrdersPage() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item: OrederType) => (
+          {data.map((item: OrderType) => (
             <tr className="text-sm md:text-base bg-red-50" key={item.id}>
               <td className="hidden md:block py-6 px-1">1233445</td>
               <td className="py-6 px-1">06/09/2023</td>
