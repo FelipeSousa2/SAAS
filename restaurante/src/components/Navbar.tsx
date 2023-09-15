@@ -24,7 +24,7 @@ export default function Navbar() {
       </div>
       {/* Right Links */}
       <div className="hidden md:flex gap-4 items-center justify-end flex-1">
-        <div className="md:absolute top-3 r-2 lg:static flex items-center gap-2 cursor-pointer bg-orange-300 px-1 rounded-md">
+        <div className="md:absolute top-3 r-2  flex items-center gap-2 cursor-pointer bg-orange-300 px-1 rounded-md">
           <Image src="/whatsapp.png" alt="" width={40} height={40} />
           <span>(**)*****-****</span>
         </div>
