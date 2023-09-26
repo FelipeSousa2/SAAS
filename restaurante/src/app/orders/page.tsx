@@ -15,10 +15,13 @@ export default function OrdersPage() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      fetch("https://localhost:3000/api/orders").then((res) => res.json()),
+      fetch("https://localhost:3000/src/app/api/orders").then((res) =>
+        res.json()
+      ),
   });
 
   if (isLoading || status === "loading") return "Loading...";
+  console.log(data);
 
   return (
     <div className="p-4 lg:px-20 xl:px-40">
