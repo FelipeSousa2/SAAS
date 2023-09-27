@@ -17,14 +17,13 @@ export const GET = async (req: NextRequest) => {
           userEmail: session.user.email!,
         },
       });
-      console.log("ORDERS: " +orders)
+
       return new NextResponse(JSON.stringify(orders), { status: 200 });
     } catch (err) {
       console.log(err);
-      return new NextResponse(
-        JSON.stringify({ message: "Algo deu errado!" }),
-        { status: 500 }
-      );
+      return new NextResponse(JSON.stringify({ message: "Algo deu errado!" }), {
+        status: 500,
+      });
     }
   } else {
     return new NextResponse(
