@@ -1,11 +1,10 @@
 "use client";
 
-import { type } from "os";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   price: number;
-  id: number;
+  id: string;
   options?: { title: string; additionalPrice: number }[];
 };
 
@@ -22,7 +21,7 @@ export default function Price({ price, id, options }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold">R${total.toFixed(2)}</h2>
+      <h2 className="text-2xl font-bold">R${total}</h2>
       {/* Options container */}
       <div className="flex gap-4">
         {options?.map((options, index) => (
