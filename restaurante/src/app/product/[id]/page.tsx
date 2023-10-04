@@ -7,7 +7,7 @@ const getData = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/products/${id}`, {
     cache: "no-store",
   });
-  console.log(res);
+
   if (!res.ok) {
     throw new Error("Failed!");
   }
@@ -36,11 +36,7 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
           {singleProduct.title}
         </h1>
         <p>{singleProduct.desc}</p>
-        <Price
-          price={singleProduct.price}
-          id={singleProduct.id}
-          options={singleProduct.options}
-        />
+        <Price product={singleProduct} />
       </div>
     </div>
   );
