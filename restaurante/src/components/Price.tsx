@@ -5,12 +5,16 @@ import { useCartStore } from "@/utils/store";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export default function Price({ product }: { product: ProductType }) {
+const Price = ({ product }: { product: ProductType }) => {
   const [total, setTotal] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
 
   const { addToCart } = useCartStore();
+
+  useEffect(() => {
+    useCartStore.persist.rehydrate();
+  }, []);
 
   useEffect(() => {
     if (product.options?.length) {
@@ -31,18 +35,18 @@ export default function Price({ product }: { product: ProductType }) {
       }),
       quantity: quantity,
     });
-    toast.success("O produto foi adicionado ao carrinho!");
+    toast.success("The product added to the cart!");
   };
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold">R${total}</h2>
-      {/* Options container */}
+      <h2 className="text-2xl font-bold">${total}</h2>
+      {/* OPTIONS CONTAINER */}
       <div className="flex gap-4">
         {product.options?.length &&
-          product.options?.map((options, index) => (
+          product.options?.map((option, index) => (
             <button
-              key={options.title}
+              key={option.title}
               className="min-w-[6rem] p-2 ring-1 ring-red-400 rounded-md"
               style={{
                 background: selected === index ? "rgb(248 113 113)" : "white",
@@ -50,15 +54,15 @@ export default function Price({ product }: { product: ProductType }) {
               }}
               onClick={() => setSelected(index)}
             >
-              {options.title}
+              {option.title}
             </button>
           ))}
       </div>
-      {/* Quantity and add button container */}
+      {/* QUANTITY AND ADD BUTTON CONTAINER */}
       <div className="flex justify-between items-center">
-        {/* Quantity */}
+        {/* QUANTITY */}
         <div className="flex justify-between w-full p-3 ring-1 ring-red-500">
-          <span>Quantidade</span>
+          <span>Quantity</span>
           <div className="flex gap-4 items-center">
             <button
               onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
@@ -73,14 +77,16 @@ export default function Price({ product }: { product: ProductType }) {
             </button>
           </div>
         </div>
-        {/* Cart button */}
+        {/* CART BUTTON */}
         <button
-          className="uppercase w-56 bg-red-500 text-white p-3 ring-1 ring-red-400"
+          className="uppercase w-56 bg-red-500 text-white p-3 ring-1 ring-red-500"
           onClick={handleCart}
         >
-          Adicionar
+          Add to Cart
         </button>
       </div>
     </div>
   );
-}
+};
+
+export default Price;
