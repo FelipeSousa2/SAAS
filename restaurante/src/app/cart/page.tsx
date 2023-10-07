@@ -25,7 +25,7 @@ const CartPage = () => {
           body: JSON.stringify({
             price: totalPrice,
             products,
-            status: "Not Paid!",
+            status: "Não pago!",
             userEmail: session.user.email,
           }),
         });

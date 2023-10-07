@@ -7,6 +7,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
+import AddressForm from "./AddressForm";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -89,6 +90,7 @@ const CheckoutForm = () => {
           layout: "tabs",
         }}
       />
+      <AddressForm />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
