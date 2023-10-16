@@ -70,11 +70,14 @@ const AddPage = () => {
     data.append("file", file!);
     data.append("upload_preset", "restaurante");
 
-    const res = await fetch("https://api.cloudinary.com/v1_1/dt112iqct/image", {
-      method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
-      body: data,
-    });
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/felipesousa/image",
+      {
+        method: "POST",
+        headers: { "Content-Type": "multipart/form-data" },
+        body: data,
+      }
+    );
 
     const resData = await res.json();
     return resData.url;
@@ -96,7 +99,7 @@ const AddPage = () => {
 
       const data = await res.json();
 
-      // router.push(`/product/${data.id}`);
+      router.push(`/product/${data.id}`);
     } catch (err) {
       console.log(err);
     }
@@ -139,7 +142,7 @@ const AddPage = () => {
           <input
             onChange={handleChange}
             className="ring-1 ring-red-200 p-2 rounded-sm"
-            type="numebr"
+            type="number"
             name="price"
           />
         </div>
@@ -170,24 +173,26 @@ const AddPage = () => {
               name="additionalPrice"
             />
           </div>
-          <div
+          <button
             className="w-52 bg-red-500 text-white p-2"
             onClick={() => setOptions((prev) => [...prev, option])}
           >
             Adicionar opção
-          </div>
+          </button>
         </div>
         <div>
-          {options.map((item) => (
+          {options.map((opt) => (
             <div
               className="ring-1 p-2 ring-red-500 rounded-md cursor-pointer"
-              key={item.title}
+              key={opt.title}
               onClick={() =>
-                setOptions(options.filter((opt) => opt.title !== item.title))
+                setOptions((prev) =>
+                  prev.filter((item) => item.title !== opt.title)
+                )
               }
             >
-              <span>{item.title}</span>
-              <span>R$ {item.additionalPrice}</span>
+              <span>{opt.title}</span>
+              <span>(+ R$ {opt.additionalPrice})</span>
             </div>
           ))}
         </div>
